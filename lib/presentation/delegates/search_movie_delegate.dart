@@ -8,10 +8,12 @@ import 'package:cinemapedia/domain/entities/movie.dart';
 typedef SearchMoviesCallback = Future<List<Movie>> Function(String query);
 
 class SearchMovieDelegate extends SearchDelegate<Movie?> {
-  SearchMoviesCallback searchMovies;
+  final SearchMoviesCallback searchMovies;
   List<Movie> initialMovies;
+
   StreamController<List<Movie>> debouncedMovies = StreamController.broadcast();
   StreamController<bool> isLoadingStream = StreamController.broadcast();
+
   Timer? _debounceTimer;
 
   SearchMovieDelegate({
