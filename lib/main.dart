@@ -9,8 +9,8 @@ Future<void> main() async {
   await dotenv.load(fileName: '.env');
 
   runApp(
-    const ProviderScope(
-      child: MainApp(),
+    ProviderScope(
+      child: AppRouter(),
     ),
   );
 }
@@ -21,7 +21,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: appRouter,
+      // routerConfig: AppRouter(),
       debugShowCheckedModeBanner: false,
       theme: AppTheme().getTheme(),
     );
